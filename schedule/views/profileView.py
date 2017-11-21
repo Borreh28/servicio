@@ -1,14 +1,8 @@
-from django.http import HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.parsers import JSONParser
+from rest_framework import viewsets
 from schedule.models import Profile
 from schedule.utilities.serializers import ProfileSerializer
 
 
-@csrf_exempt
-def getAllProfiles(request):
-    if request.method == 'GET':
-        profiles = Profile.objects.all()
-        serializer = ProfileSerializer(profiles, many=True)
-
-        return JsonResponse(serializer.data, safe=False)
+class ProfileViewSet(viewsets.ModelViewSet):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer

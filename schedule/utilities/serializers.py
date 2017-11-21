@@ -1,39 +1,38 @@
-from rest_framework import serializers
+from rest_framework.serializers import ModelSerializer
 from schedule.models import *
 
 
-class TeacherSerializer(serializers.ModelSerializer):
+class TeacherSerializer(ModelSerializer):
+    class Meta:
+        model = Teacher
+        fields = '__all__'
 
-	class Meta:
-		model = Teacher
-		fields = '__all__'
 
-class SchoolSubjectSerializer(serializers.ModelSerializer):
+class SchoolSubjectSerializer(ModelSerializer):
+    class Meta:
+        model = SchoolSubject
+        fields = '__all__'
 
-	class Meta:
-		model = SchoolSubject
-		fields = '__all__'
 
-class CareerSerializer(serializers.ModelSerializer):
+class CareerSerializer(ModelSerializer):
+    class Meta:
+        model = Career
+        fields = '__all__'
 
-	class Meta:
-		model = Career
-		fields = '__all__'
 
-class ProfileSerializer(serializers.ModelSerializer):
-	 
-	 class Meta:
-	 	model = Profile 
-	 	fields = '__all__'
+class ProfileSerializer(ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = '__all__'
 
-class ScheduleSerializer(serializers.ModelSerializer):
 
-	class Meta:
-		model = Schedule 
-		fields = '__all__'
+class ScheduleSerializer(ModelSerializer):
+    class Meta:
+        model = Schedule
+        fields = '__all__'
 
-class SchoolSubjectLogSerializer(serializers.ModelSerializer):
 
-	class Meta:
-		model = SchoolSubjectLog
-		fields = '__all__'
+class SchoolSubjectLogSerializer(ModelSerializer):
+    class Meta:
+        model = SchoolSubjectLog
+        fields = '__all__'
